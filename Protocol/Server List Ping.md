@@ -5,13 +5,13 @@ SLPは [プロトコル](https://wiki.vg/Protocol) であり、[クエリ](https
 Notchainクライアントはこのインターフェースを使用してサーバーリストを表示します。
 SLPの手順はMinecraft ver1.7で下位互換がない形式で変更されましたが、現在のサーバーは[新しいプロセス](https://c4k3.github.io/wiki.vg/Server_List_Ping.html#Current)と[古いプロセス](https://c4k3.github.io/wiki.vg/Server_List_Ping.html#1.6)の両方をサポートしています。
 
-== Current ==
+## 現行バージョン
 
-This uses the regular client-server [[protocol]]. For the general packet format, see that article.
+これは通常のクライアント-サーバー [プロトコル](https://wiki.vg/Protocol) を使用します。一般的なフォーマットについてはその記事を参照してください。
 
-=== Handshake ===
+## ハンドシェイク
 
-First, the client sends a [[Protocol#Handshake|Handshake]] packet with its state set to 1.
+最初に、クライアントはステートを1に設定した [ハンドシェイク](https://c4k3.github.io/wiki.vg/Protocol.html#Handshake) パケットを送信します。
 
 {| class="wikitable"
 ! Packet ID
