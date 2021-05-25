@@ -18,7 +18,7 @@ SLPの手順はMinecraft ver1.7で下位互換がない形式で変更されま�
 | フィールド名 | フィールドタイプ | 詳細 |
 -- | --| --- 
 | プロトコルバージョン  | VarInt | [プロトコルバージョン](https://wiki.vg/Protocol_version_numbers) を参照してください。クライアントがサーバーに接続する際に使用するバージョンの確認をします(ping自体は重要ではありません)。クライアントがどのバージョンを使用するか確認するためにpingをする場合、慣習的に-1に設定する必要があります。 |
-| サーバーアドレス| String | 接続に使用されたホスト名またはIPアドレスです(例:localhostまたは127.0.0.1)。Notchianサーバはこの情報をを使用しません。SRVレコードが定義されている場合はリダイレクトされます。_minecraft._tcp.example.comがmc.example.orgを指している場合、example.comに接続するユーザーはmc.example.orgにリダイレクトします。|
+| サーバーアドレス| String | 接続に使用されたホスト名またはIPアドレスです(例:localhostまたは127.0.0.1)。Notchianサーバはこの情報を使用しません。SRVレコードが定義されている場合はリダイレクトされます。_minecraft._tcp.example.comがmc.example.orgを指している場合、example.comに接続するユーザーはmc.example.orgにリダイレクトします。|
 | サーバーポート | Unsigned Short | デフォルトは25565です。Notchianサーバーはこの情報を使用しません。|
 | 次のステータス | VarInt  | [ステータス](https://wiki.vg/Protocol#Status) の場合は1に設定しますが、[ログイン](https://wiki.vg/Protocol#Login) の場合は2にすることもできます。|
 
