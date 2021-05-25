@@ -2,7 +2,8 @@
 https://wiki.vg/Server_List_Ping \
 **Server List Ping(SLP)** は、Minecraftサーバーが提供するインターフェースで、通常のポート経由でMOTD、プレイヤー数、最大プレイヤー数、サーバーのバージョンの問い合わせを行います。 
 SLPは [プロトコル](https://wiki.vg/Protocol) であり、[クエリ](https://wiki.vg/Query) ではないため、このインターフェースは常時稼働します。 
-The Notchian client uses this interface to display the multiplayer server list, hence the name. The SLP process changed in {{Minecraft Wiki|1.7}} in a non-backwards compatible way, but current servers still support both the [[#Current|new]] and [[#1.6|old]] process.
+Notchainクライアントはこのインターフェースを使用してサーバーリストを表示します。
+SLPの手順はMinecraft ver1.7で下位互換がない形式で変更されましたが、現在のサーバーは[新しいプロセス](https://c4k3.github.io/wiki.vg/Server_List_Ping.html#Current)と[古いプロセス](https://c4k3.github.io/wiki.vg/Server_List_Ping.html#1.6)の両方をサポートしています。
 
 == Current ==
 
