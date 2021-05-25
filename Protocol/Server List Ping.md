@@ -23,31 +23,6 @@ SLPの手順はMinecraft ver1.7で下位互換がない形式で変更されま�
 | 次のステータス | VarInt  | [ステータス](https://wiki.vg/Protocol#Status) の場合は1に設定しますが、[ログイン](https://wiki.vg/Protocol#Login) の場合は2にすることもできます。|
 
 
-
-{| class="wikitable"
-! Packet ID
-! Field Name
-! Field Type
-! Notes
-|-
-|rowspan="4"| 0x00
-| Protocol Version
-| VarInt
-| See [[protocol version numbers]]. The version that the client plans on using to connect to the server (which is not important for the ping). If the client is pinging to determine what version to use, by convention <code>-1</code> should be set.
-|-
-| Server Address
-| String
-| Hostname or IP, e.g. localhost or 127.0.0.1, that was used to connect. The Notchian server does not use this information. Note that SRV records are a complete redirect, e.g. if _minecraft._tcp.example.com points to mc.example.org, users connecting to example.com will provide mc.example.org as server address in addition to connecting to it.
-|-
-| Server Port
-| Unsigned Short
-| Default is 25565. The Notchian server does not use this information.
-|-
-| Next state
-| VarInt
-| Should be 1 for [[Protocol#Status|status]], but could also be 2 for [[Protocol#Login|login]].
-|}
-
 === Request ===
 
 The client follows up with a [[Protocol#Request|Request]] packet. This packet has no fields.
