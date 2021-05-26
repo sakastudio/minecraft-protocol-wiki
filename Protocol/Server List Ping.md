@@ -32,24 +32,15 @@ SLPの手順はMinecraft ver1.7で下位互換がない形式で変更されま�
 
 **レスポンス**
 
-サーバーはレスポンスパケットで応答すべきです。なお、理由は不明ですが、Notchianサーバーは
-The server should respond with a [[Protocol#Response|Response]] packet. Note that Notchian servers will for unknown reasons wait to receive the following [[Protocol#Ping|Ping]] packet for 30 seconds before timing out and sending Response.
+サーバーはレスポンスパケットで応答すべきです。なお、理由は不明ですが、Notchianサーバーは (ping)[https://wiki.vg/Protocol#Ping] パケットを受信したら30秒待機し、タイムアウトして応答パケットを送信します。
 
-{| class="wikitable"
-! Packet ID
-! Field Name
-! Field Type
-! Notes
-|-
-| 0x00
-| JSON Response
-| String
-| See below; as with all strings this is prefixed by its length as a VarInt
-|}
+| パケットID | フィールド名 | フィールドタイプ | 詳細 |
+-- | -- | -- |-- 
+|0x00|JSONレスポンス|String |他のStringと同様に、Varintで表現された長さが前につきます。|
 
-The JSON Response field is a [[wikipedia:JSON|JSON]] object which has the following format:
+JSONレスポンスのフォーマットは以下の通りです。
 
-<syntaxhighlight lang="javascript">
+```
 {
     "version": {
         "name": "1.8.7",
@@ -70,7 +61,7 @@ The JSON Response field is a [[wikipedia:JSON|JSON]] object which has the follow
     },
     "favicon": "data:image/png;base64,<data>"
 }
-</syntaxhighlight>
+```
 
 The ''description'' field is a [[Chat]] object.  Note that the Notchian server has no way of providing actual chat component data; instead section sign-based codes are embedded within the text of the object.
 
