@@ -14,31 +14,25 @@ SLPの手順はMinecraft ver1.7で下位互換がない形式で変更されま�
 最初に、クライアントはステータスを1に設定した [ハンドシェイク](https://c4k3.github.io/wiki.vg/Protocol.html#Handshake) パケットを送信します。
 
 
-**パケットID 0x00**
-| フィールド名 | フィールドタイプ | 詳細 |
--- | --| --- 
-| プロトコルバージョン  | VarInt | [プロトコルバージョン](https://wiki.vg/Protocol_version_numbers) を参照してください。クライアントがサーバーに接続する際に使用するバージョンの確認をします(ping自体は重要ではありません)。クライアントがどのバージョンを使用するか確認するためにpingをする場合、慣習的に-1に設定する必要があります。 |
-| サーバーアドレス| String | 接続に使用されたホスト名またはIPアドレスです(例:localhostまたは127.0.0.1)。Notchianサーバはこの情報を使用しません。SRVレコードが定義されている場合はリダイレクトされます。_minecraft._tcp.example.comがmc.example.orgを指している場合、example.comに接続するユーザーはmc.example.orgにリダイレクトします。|
-| サーバーポート | Unsigned Short | デフォルトは25565です。Notchianサーバーはこの情報を使用しません。|
-| 次のステータス | VarInt  | [ステータス](https://wiki.vg/Protocol#Status) の場合は1に設定しますが、[ログイン](https://wiki.vg/Protocol#Login) の場合は2にすることもできます。|
+| パケットID | フィールド名 | フィールドタイプ | 詳細 |
+-- | -- | -- |-- 
+|0x00| プロトコルバージョン  | VarInt | [プロトコルバージョン](https://wiki.vg/Protocol_version_numbers) を参照してください。クライアントがサーバーに接続する際に使用するバージョンの確認をします(ping自体は重要ではありません)。クライアントがどのバージョンを使用するか確認するためにpingをする場合、慣習的に-1に設定する必要があります。 |
+|0x00| サーバーアドレス| String | 接続に使用されたホスト名またはIPアドレスです(例:localhostまたは127.0.0.1)。Notchianサーバはこの情報を使用しません。SRVレコードが定義されている場合はリダイレクトされます。_minecraft._tcp.example.comがmc.example.orgを指している場合、example.comに接続するユーザーはmc.example.orgにリダイレクトします。|
+|0x00| サーバーポート | Unsigned Short | デフォルトは25565です。Notchianサーバーはこの情報を使用しません。|
+|0x00| 次のステータス | VarInt  | [ステータス](https://wiki.vg/Protocol#Status) の場合は1に設定しますが、[ログイン](https://wiki.vg/Protocol#Login) の場合は2にすることもできます。|
 
 
-=== Request ===
+**リクエスト**
 
-The client follows up with a [[Protocol#Request|Request]] packet. This packet has no fields.
+クライアントは [リクエスト](https://wiki.vg/Protocol#Request) パケットで追跡をします。これはフィールドを持ちません。
 
-{| class="wikitable"
-! Packet ID
-! Field Name
-! Field Type
-! Notes
-|-
-| 0x00
-|colspan="3"| ''no fields''
-|}
+| パケットID | フィールド名 | フィールドタイプ | 詳細 |
+-- | -- | -- |-- 
+|0x00||||
 
-=== Response ===
+**レスポンス**
 
+サーバーはレスポンスパケットで応答すべきです。なお、理由は不明ですが、Notchianサーバーは
 The server should respond with a [[Protocol#Response|Response]] packet. Note that Notchian servers will for unknown reasons wait to receive the following [[Protocol#Ping|Ping]] packet for 30 seconds before timing out and sending Response.
 
 {| class="wikitable"
