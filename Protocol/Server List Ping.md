@@ -63,11 +63,14 @@ JSONレスポンスのフォーマットは以下の通りです。
 }
 ```
 
-The ''description'' field is a [[Chat]] object.  Note that the Notchian server has no way of providing actual chat component data; instead section sign-based codes are embedded within the text of the object.
+descriptionフィールドは [チャット](https://wiki.vg/Chat) オブジェクトです。
+Notchianサーバーは実際のチャットコンポーネントデータを提供する手段を持っていないことに注意してください。代わりに、セクション記号ベースのコードがオブジェクトのテキスト内に埋め込まれます。
 
-The ''favicon'' field is optional. The ''sample'' field must be set, but can be empty.
 
-The ''favicon'' should be a [[wikipedia:Portable Network Graphics|PNG]] image that is [[wikipedia:Base64|Base64]] encoded (without newlines: <code>\n</code>, new lines no longer work since 1.13) and prepended with <code>data:image/png;base64,</code>.
+faviconフィールドはオプションです。sampleフィールドは設定しなければなりませんが、空でもよいです。
+
+
+faviconはBase64エンコードされたPNG画像で、先頭にdata:image/png;base64, を付加したものです。
 
 After receiving the Response packet, the client may send the next packet to help calculate the server's latency, or if it is only interested in the above information it can disconnect here.
 
