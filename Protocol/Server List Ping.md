@@ -77,35 +77,22 @@ faviconはBase64エンコードされたPNG画像で、先頭にdata:image/png;b
 
 **Ping**
 
-If the process is continued, the client will now send a [[Protocol#Ping|Ping]] packet containing some payload which is not important.
+このまま処理を続けると、クライアントは重要ではない何らかのペイロードを含む[Pingパケット](https://wiki.vg/Protocol#Ping)を送信することになります。
 
-{| class="wikitable"
-! Packet ID
-! Field Name
-! Field Type
-! Notes
-|-
-| 0x01
-| Payload
-| Long
-| May be any number. Notchian clients use a system-dependent time value which is counted in milliseconds.
-|}
 
-=== Pong ===
+| パケットID | フィールド名 | フィールドタイプ | 詳細 |
+-- | -- | -- |-- 
+|0x01|ペイロード|Long|任意の数値を指定します。Notchianクライアントは、ミリ秒単位でカウントされるシステム依存の時間値を使用します。|
 
-The server will respond with the [[Protocol#Pong|Pong]] packet and then close the connection.
 
-{| class="wikitable"
-! Packet ID
-! Field Name
-! Field Type
-! Notes
-|-
-| 0x01
-| Payload
-| Long
-| Should be the same as sent by the client
-|}
+**Pong**
+
+サーバーは[Pongパケット](https://wiki.vg/Protocol#Pong)で応答した後、接続を終了します。
+
+
+| パケットID | フィールド名 | フィールドタイプ | 詳細 |
+-- | -- | -- |-- 
+0x01|ペイロード|Long|クライアントから送られてきたものと同じであること|
 
 === Ping via LAN (Open to LAN in Singleplayer) ===
 
