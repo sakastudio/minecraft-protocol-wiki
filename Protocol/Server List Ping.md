@@ -72,11 +72,10 @@ faviconフィールドはオプションです。sampleフィールドは設定�
 
 faviconはBase64エンコードされたPNG画像で、先頭にdata:image/png;base64, を付加したものです。
 
-After receiving the Response packet, the client may send the next packet to help calculate the server's latency, or if it is only interested in the above information it can disconnect here.
+レスポンスパケットを受信した後、クライアントは次のパケットを送信してサーバーのレイテンシーを計算するのに役立ててもよいし、それが必要ない場合はそこで切断しても良い。
+クライアントが適切にフォーマットされた応答を受け取らなかった場合は、代わりに (過去バージョンのping)[https://wiki.vg/Server_List_Ping#1.6] を試みます。
 
-If the client does not receive a properly formatted response, then it will instead attempt a [[Server_List_Ping#1.6|legacy ping]].
-
-=== Ping ===
+**Ping**
 
 If the process is continued, the client will now send a [[Protocol#Ping|Ping]] packet containing some payload which is not important.
 
