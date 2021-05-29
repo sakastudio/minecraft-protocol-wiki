@@ -94,11 +94,11 @@ faviconはBase64エンコードされたPNG画像で、先頭にdata:image/png;b
 -- | -- | -- |-- 
 0x01|ペイロード|Long|クライアントから送られてきたものと同じであること|
 
-=== Ping via LAN (Open to LAN in Singleplayer) ===
+**LAN経由のping (シングルプレイ時にLANで開く)**
 
-In Singeplayer there is a function called "Open to LAN". Minecraft (in the serverlist) binds a UDP port and listens for connections to <code>224.0.2.60:4445</code> (Yes, that is the actual IP, no matter in what network you are or what your local IP Address is). If you click on "Open to LAN" Minecraft sends a packet every 1.5 seconds to the address: <code>[MOTD]{motd}[/MOTD][AD]{port}[/AD]</code>. Minecraft seems to check for the following Strings: <code>[MOTD]</code>, <code>[/MOTD]</code>, <code>[AD]</code>, <code>[/AD]</code>. Basically everything else is not important, you can also write bullshit before the tags (and after or between). Color codes seems to be unsupported (ToDo: Check again. Did not work here). Between <code>[AD]</code> and <code>[/AD]</code> is the servers port. If it is not numeric, 25565 will be used. If it is out of range, an error is being displayed when trying to connect. The IP Address is the same as the senders one. The string is encoded with UTF-8.
+Singeplayerには "Open to LAN "という機能があります。Minecraft は (サーバーリストで) UDP ポートをバインドし、224.0.2.60:4445 (そう、これは実際の IP で、あなたがどのネットワークにいるか、ローカル IP アドレスが何であるかは関係ありません) への接続を待ちます。LANに開く」をクリックすると、Minecraftは1.5秒ごとにパケットをこのアドレスに送信します。[MOTD]{motd}[/MOTD][AD]{port}[/AD]. Minecraft は以下の文字列をチェックしているようです。motd]、[/motd]、[ad]、[/ad]です。基本的に他のものは重要ではありません。タグの前(と後または間)にデタラメを書くこともできます。カラーコードはサポートされていないようです（ToDo: Check again. ここでは動作しませんでした）。AD]と[/AD]の間は、サーバーのポートです。数字でない場合は、25565が使われます。範囲外の場合、接続しようとするとエラーが表示されます。IPアドレスは、送信者のものと同じです。文字列は、UTF-8でエンコードされています。
 
-To implement it server side, just send a packet with the text (payload) to <code>224.0.2.60:4445</code>. If you are client side, bind a UDP socket and listen for connections. You can use a <code>MulticastSocket</code> for that.
+サーバーサイドで実装する場合は、224.0.2.60:4445にテキスト（ペイロード）を含むパケットを送信すればOKです。クライアント側で実装する場合は、UDPソケットをバインドして接続を待ちます。これにはMulticastSocketが使えます。
 
 **サンプルコード**
 
